@@ -20,7 +20,7 @@ Clear-Host
 Write-Host "$((Get-MailboxExportRequest|where status -NotMatch "Completed").count) left to export" -foregroundcolor "green"
 Write-Host "$((Get-MailboxExportRequest|where status -eq inprogress).count) in progress" -foregroundcolor "yellow"
 Get-MailboxExportRequest|where status -eq inprogress|Select-Object Mailbox,Filepath| Format-Table -AutoSize
-sleep -Seconds 10
+sleep -Seconds 30
 }
 while ((Get-MailboxExportRequest).count -gt 0)
 
