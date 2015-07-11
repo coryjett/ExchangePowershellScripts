@@ -4,8 +4,7 @@
         $ExportPath = "\\localhost\E\"
     )
 
-
-if (!(Get-Module -Name dc1-exchange-1.stratapointe.local)){Write-Host "This script needs to be run from the Exchange Management Shell" -ForegroundColor Red
+if (!(get-module|where path -Match "Exchange")){Write-Host "This script needs to be run from the Exchange Management Shell" -ForegroundColor Red
 Exit}
 if (!(Get-Command -Name New-MailboxExportRequest -ErrorAction Ignore)){Write-Host "You need to be a member of the `"Mailbox Import Export`" role to run this script." -ForegroundColor Red 
 Write-Host "Please run `"New-ManagementRoleAssignment -Role `"Mailbox Import Export`" -User `"<user name or alias>`"`"" -ForegroundColor Red
